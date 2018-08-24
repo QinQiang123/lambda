@@ -2,6 +2,7 @@ package demo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -17,7 +18,7 @@ public class Demo17 {
         String[] str1 = str.split(",");
         System.out.println(Arrays.toString(str1));
 
-        Arrays.stream(str1).collect(Collectors.toCollection(ArrayList::new));
+        List<String> list = Arrays.stream(str1).collect(Collectors.toCollection(ArrayList::new));
 
 
 
