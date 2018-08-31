@@ -14,11 +14,14 @@ public class Demo21 {
     public static void main(String[] args) {
 
 
-        System.out.println(jiecheng(4));
+
+
+
+        System.out.println(jiecheng(5));
     }
 
 
-    public static int jiecheng(int n) {
+    private static int jiecheng(int n) {
         return IntStream.rangeClosed(1, n)
                 .reduce(1, (a, b) -> a * b);
     }
