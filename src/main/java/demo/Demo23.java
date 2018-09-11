@@ -27,6 +27,9 @@ public class Demo23 {
            /* System.out.println(key);
             System.out.println(value);*/
         });
+        System.out.println("这是一段测试代码！");
+
+        System.out.println("这是一段分支代码！");
 
     }
 }
