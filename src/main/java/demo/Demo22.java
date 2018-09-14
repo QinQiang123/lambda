@@ -24,6 +24,11 @@ public class Demo22 {
 
         System.out.println(nameMap);
         System.out.println(11111);
+        System.out.println(11111);
+        System.out.println(11111);
+        System.out.println(11111);
+        System.out.println(11111);
+        System.out.println(11111);
 
     }
 }
