@@ -37,6 +37,11 @@ public class Demo23 {
         System.out.println("这是一段分支代码！");
         System.out.println("这是一段分支代码！");
         System.out.println("这是一段分支代码！");
+        System.out.println("这是一段分支代码！");
+        System.out.println("这是一段分支代码！");
+        System.out.println("这是一段分支代码！");
+        System.out.println("这是一段分支代码！");
+        System.out.println("这是一段分支代码！");
 
     }
 }
