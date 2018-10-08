@@ -1,6 +1,6 @@
 package demo;
 
-import lambdainterface.LambdaInterface1;
+import java.util.function.Function;
 
 /**
  * @author QinQiang
@@ -9,7 +9,17 @@ import lambdainterface.LambdaInterface1;
 public class Demo27 {
 
     public static void main(String[] args) {
-        LambdaInterface1<String, String, String> lambdaInterface1 = (a, b ,c) -> System.out.println(a + b +c);
-        lambdaInterface1.test("11", "22", "33");
-    }
+
+         String a = "2018";
+
+
+        Function<String, Integer> f = Integer::parseInt;
+
+
+        System.out.println(f.apply(a));
+
+
+
+
+   }
 }
