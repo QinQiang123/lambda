@@ -98,7 +98,7 @@ public class BinaryTree {
      */
     public void preOrder(TreeNode node) {
         if (Objects.nonNull(node)) {
-            System.out.println(node);
+            System.out.println(node.getData());
             preOrder(node.getLeftNode());
             preOrder(node.getRightNode());
         }
@@ -110,7 +110,7 @@ public class BinaryTree {
     public void inOrder(TreeNode node) {
         if (Objects.nonNull(node)) {
             inOrder(node.getLeftNode());
-            System.out.println(node);
+            System.out.println(node.getData());
             inOrder(node.getRightNode());
         }
     }
@@ -123,7 +123,7 @@ public class BinaryTree {
         if (Objects.nonNull(node)) {
             postOrder(node.getLeftNode());
             postOrder(node.getRightNode());
-            System.out.println(node);
+            System.out.println(node.getData());
         }
     }
 
