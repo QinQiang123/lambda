@@ -29,7 +29,7 @@ public class Demo7 {
                 .sorted(Comparator.comparing(Dish::getCalories).reversed())
                 .filter(Dish::isVegetarian)
                 .findAny()
-                .ifPresent(dish -> System.out.println(dish.getName()));
+                .ifPresent(System.out::println);
 
 
 
