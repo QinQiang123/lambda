@@ -3,6 +3,8 @@ package demo;
 import pojo.User;
 
 
+import java.util.Date;
+
 import static java.util.Optional.*;
 
 /**
@@ -16,12 +18,12 @@ public class Demo29 {
 
         User user = new User();
 
-        user.setName("qinqiang");
-
+        user.setName("qinqiang").setAge(25).setCreateDate(new Date());
+/*
         ofNullable(user.getAge()).orElseGet(() -> {
             user.setAge(255);
             return 1;
-        });
+        });*/
 
         System.out.println(user);
 

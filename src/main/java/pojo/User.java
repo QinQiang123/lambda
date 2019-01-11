@@ -24,4 +24,19 @@ public class User {
     public Date getCreateDate() {
         return createDate;
     }
+
+    public User setAge(Integer age) {
+        this.age = age;
+        return this;
+    }
+
+    public User setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public User setCreateDate(Date createDate) {
+        this.createDate = createDate;
+        return this;
+    }
 }
