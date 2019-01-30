@@ -12,7 +12,7 @@ import java.util.Date;
  */
 
 @Data
-public class User {
+public class User extends BasePO{
 
     private Integer age;
 
@@ -39,4 +39,6 @@ public class User {
         this.createDate = createDate;
         return this;
     }
+
+
 }
