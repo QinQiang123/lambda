@@ -1,11 +1,15 @@
 package demo;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.math.IntMath;
+import pojo.Dish;
+import pojo.GetMenuList;
 
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -15,32 +19,14 @@ import java.util.stream.Collectors;
  */
 public class Demo32 {
 
-    private static final Joiner JOINER = Joiner.on(", ").skipNulls();
 
     public static void main(String[] args) {
+        Iterable<String> split = Splitter.on(",").trimResults().split("1, 1, 1");
+        split.forEach(System.out::println);
 
-        List<String> strings = Lists.newArrayList();
-
-        strings.add("xxx1");
-        strings.add("xxx2");
-        strings.add("xxx3");
-        strings.add("xxx4");
-
-        String collect = strings.stream()
-                .map("u."::concat)
-                .collect(Collectors.joining(", "));
-
-        String join = JOINER.join(strings);
-        System.out.println(collect);
-        System.out.println(join);
-
-        int a = 10;
-
-        int b = 3;
-
-        System.out.println(IntMath.divide(a, b, RoundingMode.UP));
-
-        System.out.println(IntMath.gcd(12, 20));
-
+        //List<Dish> list = GetMenuList.getList();
+        //
+        //Map<String, Dish> collect = list.stream().collect(Collectors.toMap(Dish::getName, e -> e));
+        //System.out.println(collect.get("season fruit").getCalories());
     }
 }
