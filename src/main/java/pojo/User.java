@@ -1,7 +1,8 @@
 package pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -11,7 +12,8 @@ import java.util.Date;
  * @since 2019-01-11 10:18
  */
 
-@Data
+@Getter
+@Setter
 public class User extends BasePO{
 
     private Integer age;
