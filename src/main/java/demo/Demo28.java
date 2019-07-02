@@ -1,18 +1,28 @@
 package demo;
 
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.lang.Console;
+import java.lang.reflect.Field;
 
 /**
  * @author QinQiang
  * @description
- * @since 2019-07-02 9:17
+ * @since 2019-01-09 10:22
  */
 public class Demo28 {
 
-    public static void main(String[] args) {
-        Object s = 1.25;
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
 
-        Console.log(Convert.toDouble(s));
+        //TODO 要求输出a = 400, b = 500 请完成method方法
+        int a = 4, b = 5;
+        method(a, b);
+        System.out.println("a = " + a + ", b = " + b);
+
+
+    }
+
+    private static void method(int a, int b) throws NoSuchFieldException, IllegalAccessException {
+        Field value = Integer.valueOf(a).getClass().getDeclaredField("value");
+        value.setAccessible(true);
+        value.set(a, 400);
+
     }
 }

@@ -1,30 +1,35 @@
 package demo;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.lang.Console;
-import cn.hutool.extra.tokenizer.Result;
-import cn.hutool.extra.tokenizer.TokenizerEngine;
-import cn.hutool.extra.tokenizer.TokenizerUtil;
-import cn.hutool.extra.tokenizer.Word;
-
-import java.util.Iterator;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
+ *
  * @author QinQiang
- * @since 2018-09-30 11:27
+ * @description
+ * @since 2018-12-27 15:46
  */
 public class Demo27 {
 
     public static void main(String[] args) {
-        //LambdaInterface1<String, String, String> lambdaInterface1 = (a, b, c) -> System.out.println(a + b + c);
-        //lambdaInterface1.test("11", "22", "33");
-        TokenizerEngine engine = TokenizerUtil.createEngine();
+        List<Map<String, BigDecimal>> mapList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            Map<String, BigDecimal> map = new HashMap<>();
+            map.put("1", new BigDecimal(1));
+            map.put("2", new BigDecimal(2));
+            map.put("3", new BigDecimal(3));
+            map.put("4", new BigDecimal(4));
+            mapList.add(map);
+        }
 
-        //解析文本
-        String text = "这两个方法的区别在于返回值";
-        Result result = engine.parse(text);
-        //输出：这 两个 方法 的 区别 在于 返回 值
-        String resultStr = CollUtil.join((Iterator<Word>) result, " ");
-        Console.log(resultStr);
+        BigDecimal bigDecimal = mapList.stream()
+                .flatMap(s -> s.entrySet().stream())
+                .filter(s -> Objects.equals("2", s.getKey()))
+                .map(Map.Entry::getValue)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+
+        System.out.println(bigDecimal);
+
     }
 }

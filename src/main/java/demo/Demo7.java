@@ -5,8 +5,6 @@ import pojo.GetMenuList;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * @author SiPingSoft
@@ -29,7 +27,7 @@ public class Demo7 {
                 .sorted(Comparator.comparing(Dish::getCalories).reversed())
                 .filter(Dish::isVegetarian)
                 .findAny()
-                .ifPresent(dish -> System.out.println(dish.getName()));
+                .ifPresent(System.out::println);
 
 
 
