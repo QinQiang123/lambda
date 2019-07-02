@@ -1,13 +1,14 @@
 package demo;
 
 import pojo.Dish;
-import static pojo.GetMenuList.getList;
-import static  java.util.stream.Collectors.*;
 
 import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Optional;
+
+import static java.util.stream.Collectors.*;
+import static pojo.GetMenuList.getList;
 
 /**
  *
@@ -48,9 +49,8 @@ public class Demo14 {
         System.out.println(totalCalories2);
 
 
-        Optional<Dish> optionalDish = menu.stream()
-                .collect(reducing((d1, d2) -> d1.getCalories() > d2.getCalories() ? d1 : d2));
-        optionalDish.ifPresent(dish -> System.out.println(dish));
+        Optional<Dish> optionalDish = menu.stream().reduce((d1, d2) -> d1.getCalories() > d2.getCalories() ? d1 : d2);
+        optionalDish.ifPresent(System.out::println);
 
     }
 

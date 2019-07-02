@@ -1,8 +1,8 @@
 package demo;
 
-import com.jarvis.base.util.DateHelper;
 import timeserializer.Order;
 
+import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Demo28 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         Order order = new Order();
         order.setPayTime(LocalDateTime.now());
         System.out.println(order.getPayTime());
@@ -20,10 +20,17 @@ public class Demo28 {
 
         Date date = new Date();
 
-        System.out.println(DateHelper.formatDate(date));
-        System.out.println(DateHelper.formatDate(date, "yyyy-MM-dd hh"));
+        //TODO 要求输出a = 400, b = 500 请完成method方法
+        int a = 4, b = 5;
+        method(a, b);
+        System.out.println("a = " + a + ", b = " + b);
 
+    }
 
+    private static void method(int a, int b) throws NoSuchFieldException, IllegalAccessException {
+        Field value = Integer.valueOf(a).getClass().getDeclaredField("value");
+        value.setAccessible(true);
+        value.set(a, 400);
 
     }
 }

@@ -1,25 +1,35 @@
 package demo;
 
-import java.util.function.Function;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
+ *
  * @author QinQiang
- * @since 2018-09-30 11:27
+ * @description
+ * @since 2018-12-27 15:46
  */
 public class Demo27 {
 
     public static void main(String[] args) {
+        List<Map<String, BigDecimal>> mapList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            Map<String, BigDecimal> map = new HashMap<>();
+            map.put("1", new BigDecimal(1));
+            map.put("2", new BigDecimal(2));
+            map.put("3", new BigDecimal(3));
+            map.put("4", new BigDecimal(4));
+            mapList.add(map);
+        }
 
-         String a = "2018";
+        BigDecimal bigDecimal = mapList.stream()
+                .flatMap(s -> s.entrySet().stream())
+                .filter(s -> Objects.equals("2", s.getKey()))
+                .map(Map.Entry::getValue)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
 
 
-        Function<String, Integer> f = Integer::parseInt;
+        System.out.println(bigDecimal);
 
-
-        System.out.println(f.apply(a));
-
-
-
-
-   }
+    }
 }
