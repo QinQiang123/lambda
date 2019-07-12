@@ -19,7 +19,6 @@ public class Demo26 {
     }
 
     public static boolean find(int target, int[][] array) {
-
         return Arrays.stream(array).flatMapToInt(Arrays::stream).anyMatch(num -> num == target);
     }
 

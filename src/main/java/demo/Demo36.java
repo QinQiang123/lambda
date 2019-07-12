@@ -1,9 +1,10 @@
 package demo;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.lang.Console;
-import com.alibaba.fastjson.JSONPath;
+import com.google.common.collect.Maps;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * @author QinQiang
@@ -12,12 +13,12 @@ import java.util.List;
  */
 public class Demo36 {
     public static void main(String[] args) {
-
-        //language=JSON
-        String jsonStr = "[{\"x\":0,\"y\":0,\"w\":2,\"h\":10,\"i\":0,\"widgetId\":10,\"component\":\"echarts\",\"size\":{\"w\":530,\"h\":339}}]";
-        List<Integer> read = (List<Integer>) JSONPath.read(jsonStr, "$..widgetId");
-        Console.log(read);
-
-
+        Map<String, Object> map = Maps.newHashMap();
+        Map<String, Object> map1 = Maps.newHashMap();
+        map.put("a", 1);
+        map1.put("b", 2);
+        map.put("c", map1);
+        Object a = BeanUtil.getProperty(map, "c.b");
+        Console.log(a);
     }
 }
