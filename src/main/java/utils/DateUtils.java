@@ -1,10 +1,9 @@
 package utils;
 
-import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.lang.Validator;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import org.jetbrains.annotations.Contract;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +22,7 @@ public class DateUtils {
      * @param endTime 结束时间
      * @return 时间间隔的集合
      */
+    @org.jetbrains.annotations.NotNull
     public static List<Map<String, Date>> splitDate(Date startTime, Date endTime) {
         List<Map<String, Date>> maps = Lists.newArrayList();
         Date newEndTime;
@@ -50,7 +50,8 @@ public class DateUtils {
      * @param dest
      * @return
      */
-    public static boolean isDate(String dest) {
+    @Contract(pure = true)
+    public static boolean isDateFormat(String dest) {
 
         return true;
     }
